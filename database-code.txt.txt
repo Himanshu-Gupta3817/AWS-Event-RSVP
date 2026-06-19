@@ -1,0 +1,55 @@
+/*Creating your Table:*/
+
+CREATE TABLE events (
+  event_id      VARCHAR(64) PRIMARY KEY,
+  title         VARCHAR(200) NOT NULL,
+  description   TEXT,
+  start_at      DATETIME NOT NULL,
+  venue         VARCHAR(200),
+  banner_url    VARCHAR(500),
+  created_at    TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+/*Inserting Sample Data:*/
+
+INSERT INTO events (event_id, title, description, start_at, venue, banner_url)
+VALUES
+(
+  'aws-meetup-manila-2026',
+  'AWS User Group Manila Monthly Meetup 2026',
+  'Join fellow builders for lightning talks, live demos, and networking with AWS enthusiasts in Manila.',
+  '2026-10-18 18:00:00',
+  'AWS PH Office, Bonifacio Global City',
+  ''
+),
+(
+  'aws-buildercards-tournament-2026',
+  'AWS BuilderCards Tournament 2026',
+  'Learn all about AWS BuilderCards.',
+  '2026-11-08 17:00:00',
+  'AWS PH Office, Bonifacio Global City',
+  ''
+),
+(
+  'aws-community-day-ph-2026',
+  'AWS Community Day Philippines 2026',
+  'The biggest gathering of AWS builders, user group leaders, and cloud enthusiasts in the Philippines — featuring talks, demos, and community showcases.',
+  '2026-11-30 09:00:00',
+  'AWS PH Office, Bonifacio Global City',
+  ''
+);
+
+
+SELECT * FROM events;
+
+UPDATE events
+SET banner_url = "https://d3dkt9wpiwvas4.cloudfront.net/banners/Banner1.png"
+WHERE event_id = "aws-buildercards-tournament-2026";
+
+UPDATE events
+SET banner_url = "https://d3dkt9wpiwvas4.cloudfront.net/banners/Banner2.png"
+WHERE event_id = "aws-community-day-ph-2026";
+
+UPDATE events
+SET banner_url = "https://d3dkt9wpiwvas4.cloudfront.net/banners/Banner3.png"
+WHERE event_id = "aws-meetup-manila-2026";
